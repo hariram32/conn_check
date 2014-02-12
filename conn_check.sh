@@ -13,7 +13,7 @@
 
 # Definition of the script's usage
 usage() {
-	echo "Usage: ${0} [-t|-h]"
+	echo "Usage: ${0} [-t] [-h] [-l] [-e] [-w] [-r] [-a]"
 	echo -e "\t -h: This help."
 	echo -e "\t -t: If you want to redirect the script to a file, this option will remove the special characters (no colors)."
 	echo -e "\t -l: Shows the last lines of the log, to see if the connector is working properly."
@@ -163,7 +163,7 @@ do
         # Check errors in the log file
             echo 
             echo -e "\t* Errors in the log file"
-            grep -i error ${CONN_DIR}/${conn_name}/${LOG_DIR}/${LOG_FILE}
+            grep -i error ${CONN_DIR}/${conn_name}/${LOG_DIR}/${LOG_FILE} | tail -20
 	    echo
 	fi
 
